@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FcfsEventService } from './fcfs-event.service';
+import { FcfsEventService } from '../src/fcfs-event/service/fcfs-event.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RedisManager } from 'src/libs/redis-manager/redis.manager';
 import { RedisModule } from 'src/libs/redis-manager/redis.module';

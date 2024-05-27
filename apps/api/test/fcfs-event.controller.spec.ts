@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FcfsEventController } from './fcfs-event.controller';
+import { FcfsEventController } from '../src/fcfs-event/controller/fcfs-event.controller';
 
 describe('EventProductController', () => {
   let controller: FcfsEventController;
