@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FcfsEventService } from '../src/fcfs-event/service/fcfs-event.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { RedisManager } from 'src/libs/redis-manager/redis.manager';
-import { RedisModule } from 'src/libs/redis-manager/redis.module';
+import { RedisManager } from 'src/common/redis-manager/redis.manager';
+import { RedisModule } from 'src/common/redis-manager/redis.module';
 import { validateAppConfig } from 'src/config/config';
 
 // RedisManager를 위한 간단한 모킹
