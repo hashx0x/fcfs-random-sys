@@ -29,7 +29,7 @@ export const AppConfigSchema = z.object({
 
 export const validateAppConfig = (config: Record<string, any>) => {
   const parsedAppConfig = AppConfigSchema.safeParse(config);
-  console.log(' parsedAppConfig :>> ', parsedAppConfig);
+
   if (!parsedAppConfig.success) {
     throw new Error(parsedAppConfig.error.message);
   }
