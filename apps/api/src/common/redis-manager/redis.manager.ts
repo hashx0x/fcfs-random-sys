@@ -7,15 +7,7 @@ import { RedisConfigService } from 'src/config/redis/redis.config.service';
 export class RedisManager implements OnModuleInit {
   private redisClient: Cluster = new Redis.Cluster([]);
 
-  constructor(private redisConfigService: RedisConfigService) {
-    // this.redisClient = new Redis.Cluster([
-    //   {
-    //     host: config.get('REDIS_HOST'),
-    //     port: config.get('REDIS_PORT'),
-    //   },
-    // ]);
-    // this.monitor();
-  }
+  constructor(private redisConfigService: RedisConfigService) {}
 
   onModuleInit() {
     this.redisClient = new Redis.Cluster([
@@ -81,6 +73,11 @@ export class RedisManager implements OnModuleInit {
   // set key value
   async set(key: string, value: number) {
     return await this.redisClient.set(key, value);
+  }
+
+  // zadd key score member
+  async zadd(key: string, score: number, member: string) {
+    return await this.redisClient.zadd(key, score, member);
   }
 
   // async lock(key: string, value: string, expire: number) {

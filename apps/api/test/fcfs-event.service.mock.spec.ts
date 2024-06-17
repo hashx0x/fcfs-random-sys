@@ -11,6 +11,10 @@ class MockRedisManager {
     this.count++;
     return this.count;
   }
+
+  async get(key: string): Promise<number> {
+    return this.count;
+  }
 }
 
 describe('FcfsEventService', () => {
