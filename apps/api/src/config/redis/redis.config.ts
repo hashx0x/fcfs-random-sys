@@ -1,23 +1,5 @@
 import z from 'zod';
 
-// export interface IRedisConfig {
-//   REDIS_HOST: string;
-//   REDIS_PORT: number;
-//   REDIS_PASSWORD?: string;
-// }
-
-//TODO: 추후 config load 방법 결정
-// export const AppConfig = () => {
-//   const appConfig = {
-//     redis: {
-//       host: process.env.REDIS_HOST || 'localhost',
-//       port: Number(process.env.REDIS_PORT) || 6379,
-//     },
-//   };
-
-//   return appConfig;
-// };
-
 export const RedisConfig = () => ({
   REDIS_HOST: process.env.REDIS_HOST,
   REDIS_PORT: Number(process.env.REDIS_PORT),
