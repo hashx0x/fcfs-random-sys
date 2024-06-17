@@ -1,9 +1,21 @@
 import { z } from 'nestjs-zod/z';
+import { DatabaseConfigSchema } from './database/database.config';
+import { RedisConfigSchema } from './redis/redis.config';
 
-export interface RedisConfig {
-  REDIS_HOST: string;
-  REDIS_PORT: number;
-}
+export const AppConfigSchema = z.object({
+  ...DatabaseConfigSchema.shape,
+  ...RedisConfigSchema.shape,
+});
+
+export const validateAppConfig = (config: Record<string, any>) => {
+  const parsedAppConfig = AppConfigSchema.safeParse(config);
+
+  if (!parsedAppConfig.success) {
+    throw new Error(parsedAppConfig.error.message);
+  }
+
+  return parsedAppConfig.data;
+};
 
 //TODO: 추후 config load 방법 결정
 // export const AppConfig = () => {
@@ -16,17 +28,3 @@ export interface RedisConfig {
 
 //   return appConfig;
 // };
-
-export const AppConfigSchema = z.object({
-  REDIS_HOST: z.string(),
-  REDIS_PORT: z.string().transform((v) => Number(v)),
-});
-
-export const validateAppConfig = (config: Record<string, any>) => {
-  const parsedAppConfig = AppConfigSchema.safeParse(config);
-  if (!parsedAppConfig.success) {
-    throw new Error(parsedAppConfig.error.message);
-  }
-
-  return parsedAppConfig.data;
-};

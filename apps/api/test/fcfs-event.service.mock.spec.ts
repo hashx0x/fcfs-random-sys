@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FcfsEventService } from '../src/fcfs-event/service/fcfs-event.service';
 import { ConfigService } from '@nestjs/config';
-import { RedisManager } from 'src/libs/redis-manager/redis.manager';
+import { RedisManager } from 'src/common/redis-manager/redis.manager';
 
 // RedisManager를 위한 간단한 모킹
 class MockRedisManager {
@@ -9,6 +9,10 @@ class MockRedisManager {
 
   async incr(key: string): Promise<number> {
     this.count++;
+    return this.count;
+  }
+
+  async get(key: string): Promise<number> {
     return this.count;
   }
 }

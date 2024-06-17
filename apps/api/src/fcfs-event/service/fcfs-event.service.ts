@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { RedisManager } from '../../libs/redis-manager/redis.manager';
+import { RedisManager } from '../../common/redis-manager/redis.manager';
 import { v4 } from 'uuid';
+import { Transaction } from 'typeorm';
 
 @Injectable()
 export class FcfsEventService {
@@ -12,6 +13,7 @@ export class FcfsEventService {
   ) {}
 
   // TODO: Param에 user 정보 추가,
+
   async pickRandomProduct(randomEventId: string) {
     // TODO: add logic that validate receipt
 
