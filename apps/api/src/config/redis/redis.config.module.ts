@@ -6,7 +6,7 @@ import { RedisConfigService } from './redis.config.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      // load: [RedisConfig],
+      load: [RedisConfig],
       validate: validateRedisConfig,
     }),
   ],

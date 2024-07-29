@@ -7,7 +7,7 @@ export const AppConfigSchema = z.object({
   ...RedisConfigSchema.shape,
 });
 
-export const validateAppConfig = (config: Record<string, any>) => {
+export const validateAppConfig = (config: Record<string, string>) => {
   const parsedAppConfig = AppConfigSchema.safeParse(config);
 
   if (!parsedAppConfig.success) {

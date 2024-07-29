@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FcfsEventModule } from './fcfs-event/fcfs-event.module';
+import { FcfsEventModule } from './core/fcfs-event/fcfs-event.module';
 import { ConfigModule } from '@nestjs/config';
 import { validateAppConfig } from './config/config';
 

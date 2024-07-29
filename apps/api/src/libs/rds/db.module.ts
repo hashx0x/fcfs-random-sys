@@ -1,7 +1,9 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 import { DatabaseConfigModule } from 'src/config/database/database.config.module';
 import { DatabaseConfigService } from 'src/config/database/database.config.service';
+import { EntitySchema } from 'typeorm';
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { DatabaseConfigService } from 'src/config/database/database.config.servi
   exports: [TypeOrmModule],
 })
 export class DatabaseModule {
-  static forFeature(entities: any[]): DynamicModule {
+  static forFeature(entities: EntitySchema[]): DynamicModule {
     return {
       module: DatabaseModule,
       imports: [TypeOrmModule.forFeature(entities)],

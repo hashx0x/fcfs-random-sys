@@ -1,16 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { RedisManager } from '../../common/redis-manager/redis.manager';
+import { Inject, Injectable } from '@nestjs/common';
 import { v4 } from 'uuid';
-import { Transaction } from 'typeorm';
+import { REDIS_MANAGER } from 'src/libs/redis/redis.symbol';
+import { IRedisManager } from 'src/libs/redis/redis.manager.interface';
 
 @Injectable()
 export class FcfsEventService {
-  private readonly;
-  constructor(
-    private redisManager: RedisManager,
-    config: ConfigService,
-  ) {}
+  constructor(@Inject(REDIS_MANAGER) private readonly redisManager: IRedisManager) {}
 
   // TODO: Param에 user 정보 추가,
 

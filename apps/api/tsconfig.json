@@ -10,7 +10,12 @@
     "target": "ESNext",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": [
+        "src/*"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,

@@ -9,5 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "packageManager": "pnpm@8.6.10"
 }
